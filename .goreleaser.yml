@@ -6,6 +6,10 @@ env:
 builds:
   - main: main.go
     binary: kube-bench
+    env:
+      - CGO_ENABLED=0
+    ldflags: '-static -w'
+    tags: user netgo
     goos:
       - linux
       - darwin
