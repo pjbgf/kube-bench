@@ -8,8 +8,7 @@ builds:
     binary: kube-bench
     env:
       - CGO_ENABLED=0
-    ldflags: '-static -w'
-    tags: user netgo
+    tags: usergo netgo
     goos:
       - linux
       - darwin
@@ -23,6 +22,8 @@ builds:
       - 6
       - 7
     ldflags:
+      - "-static"
+      - "-w"
       - "-X github.com/aquasecurity/kube-bench/cmd.KubeBenchVersion={{.Version}}"
       - "-X github.com/aquasecurity/kube-bench/cmd.cfgDir={{.Env.KUBEBENCH_CFG}}"
 # Archive customization
